@@ -1,0 +1,15 @@
+.row__movies {
+  position: relative;
+  display: flex;
+  top: 80px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  z-index: 0;
+}
+
+.row__movie {
+  object-fit: contain;
+  max-height: 200px;
+  margin: 20px 20px;
+  max-width: 100%;
+}
