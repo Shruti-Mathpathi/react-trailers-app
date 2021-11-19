@@ -1,15 +1,21 @@
+.row {
+  color: white;
+}
+
 .row__movies {
   position: relative;
   display: flex;
-  top: 80px;
+  top: 70px;
   flex-wrap: wrap;
   justify-content: space-around;
   z-index: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  max-height: 100%;
 }
 
 .row__movie {
   object-fit: contain;
   max-height: 200px;
-  margin: 20px 20px;
+  margin: 30px 30px;
   max-width: 100%;
 }
