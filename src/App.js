@@ -12,21 +12,26 @@ export default function App() {
   // fetching list of movies
   useEffect(() => {
     const fetchMovies = async () => {
-      const responseJsonData = await fetch(
-        "https://peaceful-forest-62260.herokuapp.com/"
+      const responseLanguageJsonData = await fetch(
+        "https://react-assessment-cbbb0-default-rtdb.firebaseio.com/languageList.json"
       );
 
-      if (!responseJsonData.ok) {
+      const responseMoviesJsonData = await fetch(
+        "https://react-assessment-cbbb0-default-rtdb.firebaseio.com/moviesData.json"
+      );
+
+      if (!responseLanguageJsonData.ok || !responseMoviesJsonData.ok) {
         throw new Error("Something went wrong!");
       }
 
-      const responseData = await responseJsonData.json();
+      const responseLanguageData = await responseLanguageJsonData.json();
+      const responseMoviesData = await responseMoviesJsonData.json();
 
-      const moviesList = Object.values(responseData.moviesData);
+      const moviesList = Object.values(responseMoviesData);
       setMovies(moviesList);
       setMasterMoviesList(moviesList);
 
-      let options = responseData.languageList.map((d) => ({
+      let options = responseLanguageData.map((d) => ({
         value: d,
         label: d
       }));
